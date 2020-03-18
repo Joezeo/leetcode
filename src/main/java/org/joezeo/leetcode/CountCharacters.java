@@ -1,9 +1,7 @@
-package com.joezeo.algorithm.leetcode;
+package org.joezeo.leetcode;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  *

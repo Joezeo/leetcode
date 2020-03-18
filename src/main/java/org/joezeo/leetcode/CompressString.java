@@ -1,4 +1,4 @@
-package com.joezeo.algorithm.leetcode;
+package org.joezeo.leetcode;
 
 /**
  * 给定一组字符，使用原地算法将其压缩。
