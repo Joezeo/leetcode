@@ -1,4 +1,4 @@
-<!--编写一个 SQL 查询，获取 Employee 表中第 n 高的薪水（Salary）。-->
+# 编写一个 SQL 查询，获取 Employee 表中第 n 高的薪水（Salary）。
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   if N<0 then

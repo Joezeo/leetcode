@@ -11,22 +11,21 @@ public class LengthOfLongestSubstring {
 
 
     /**
-     * 使用滑动窗口，设定左右两个指针，满足条件左指针右移，不满足条件左指针右移
+     * 使用链表，满足条件链表尾部加数据，不满足条件链表头部删数据
+     * O(n)
      */
     public static int lengthOfLongestSubstring(String s) {
         char[] arr = s.toCharArray();
         int length = 0;
 
-        int left = 0, right = 0;
         List<Character> list = new LinkedList<>();
-        while (right != s.length()) {
-            if (list.contains(arr[right])) {
+        for(int index = 0; index!=s.length(); ){
+            if(list.contains(arr[index])){
                 list.remove(0);
                 continue;
             }
-            list.add(arr[right]);
-            right++;
-            length = Math.max(list.size(), length);
+            list.add(arr[index++]);
+            length = Math.max(list.size(),length);
         }
 
         return length;
