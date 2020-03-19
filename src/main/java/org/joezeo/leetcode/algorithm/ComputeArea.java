@@ -1,4 +1,4 @@
-package org.joezeo.leetcode;
+package org.joezeo.leetcode.algorithm;
 
 /**
  * 在二维平面上计算出两个由直线构成的矩形重叠后形成的总面积。

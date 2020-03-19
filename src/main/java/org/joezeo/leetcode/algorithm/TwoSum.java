@@ -1,4 +1,4 @@
-package org.joezeo.leetcode;
+package org.joezeo.leetcode.algorithm;
 
 import java.util.HashMap;
 import java.util.Map;

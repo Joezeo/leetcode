@@ -1,4 +1,4 @@
-package org.joezeo.leetcode;
+package org.joezeo.leetcode.algorithm;
 
 public class LinkListAddTwoNum {
     public class ListNode {

@@ -1,4 +1,4 @@
-package org.joezeo.leetcode;
+package org.joezeo.leetcode.algorithm;
 
 /**
  * 给定一个由空格分割单词的句子 S。每个单词只包含大写或小写字母。

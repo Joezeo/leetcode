@@ -1,4 +1,4 @@
-package org.joezeo.leetcode;
+package org.joezeo.leetcode.algorithm;
 
 /**
  * 给定一个包含 0 和 1 的二维网格地图，其中 1 表示陆地 0 表示水域。
