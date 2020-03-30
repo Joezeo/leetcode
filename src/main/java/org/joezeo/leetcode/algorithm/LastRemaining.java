@@ -51,11 +51,11 @@ public class LastRemaining {
         class Node {
             int num; // 编号
             Node next;
-
             public Node(int num) {
                 this.num = num;
             }
         }
+
         Node head = new Node(0);
         Node cur = head;
         for (int i = 1; i < n; i++) {
@@ -111,7 +111,7 @@ public class LastRemaining {
     public static int lastRemaining_Joseph(int n, int m) {
         // 我们容易知道当队列的长度为1时，胜利者的下标为0；
         int ans = 0;
-        // 由此倒推，当长度为2时，胜利者的下标为 (0 + m) % n;
+        // 由此倒推，当长度为2时，胜利者的下标为 (0 + m) % 2;
         // 故有此可以推导出长度为n时，胜利者的下标
         for (int i = 2; i <= n; i++) { // 通过迭代求解
             ans = (ans + m) % i;
