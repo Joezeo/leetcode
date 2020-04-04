@@ -19,26 +19,26 @@ public class TrappingRain {
      * 使用暴力观察法，对于每一个下标我们都需要左右遍历寻找最大值，时间复杂度O(n2)
      * 使用动态规划，使用两个数组来分别存储某个位置的左右最大值，时间复杂度O(n)
      * 假设某个下标i 他的左边最大值为Math.max(height[i], leftMax[i-1])
-     *              他的右边最大值为Math.max(height[i], rightMax[i+1])
+     *             他的右边最大值为Math.max(height[i], rightMax[i+1])
      * 我们只需要设置两个递推的的起点，使用双指针，就可以一轮遍历存储下每个下标的左右最大值
      */
-    public int trap(int[] height){
-        if(height.length < 3){
+    public int trap(int[] height) {
+        if (height.length < 3) {
             return 0;
         }
         int[] leftMax = new int[height.length];
         int[] rightMax = new int[height.length];
         leftMax[0] = height[0]; // 左边设置入口值
-        rightMax[height.length-1] = height[height.length-1]; // 右边设置入口值
-        for(int i=1,j=height.length-2; i<height.length&&j>=0; i++,j--){
-            leftMax[i] = Math.max(height[i], leftMax[i-1]);
-            rightMax[j] = Math.max(height[j], rightMax[j+1]);
+        rightMax[height.length - 1] = height[height.length - 1]; // 右边设置入口值
+        for (int i = 1, j = height.length - 2; i < height.length && j >= 0; i++, j--) {
+            leftMax[i] = Math.max(height[i], leftMax[i - 1]);
+            rightMax[j] = Math.max(height[j], rightMax[j + 1]);
         }
         int count = 0;
-        for(int i=0; i<height.length; i++){
+        for (int i = 0; i < height.length; i++) {
             int mini = Math.min(leftMax[i], rightMax[i]);
-            if(mini > height[i]){
-                count += mini-height[i];
+            if (mini > height[i]) {
+                count += mini - height[i];
             }
         }
         return count;
