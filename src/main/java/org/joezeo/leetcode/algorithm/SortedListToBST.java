@@ -63,7 +63,7 @@ public class SortedListToBST {
     }
 
     // 有序链表转换成为平衡二叉树
-    // 有序链表的中间的一个值即是作为树的根节点
+    // 有序链表的中间的一个值即是作为树的根节点，使用快慢指针来寻找链表的中间节点
     // 然后进行递归缔造树
     public TreeNode sortedListToBST(ListNode head) {
         return buildTree(head, null);
