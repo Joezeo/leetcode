@@ -30,6 +30,7 @@ public class InsertionSortList {
 
     // 链表的前半部分是已经排好序的，且是升序排序，那么我们从左至右找第一个比当前节点大的位置前面插进去就完事
     // 暴力解法...非常耗时
+    // !!!!!!每次拿出未排序的节点，先和前驱比较，如果大于或者等于前驱，就不用排序了，直接进入下一次循环
     public ListNode insertionSortList(ListNode head) {
         ListNode curent = head;
         ListNode curentLast = null;
@@ -37,6 +38,11 @@ public class InsertionSortList {
         ListNode cursorLast;
         while (curent != null) {
             if (curent.equals(head)) {
+                curentLast = curent;
+                curent = curent.next;
+                continue;
+            }
+            if (curent.val >= curentLast.val) {
                 curentLast = curent;
                 curent = curent.next;
                 continue;
