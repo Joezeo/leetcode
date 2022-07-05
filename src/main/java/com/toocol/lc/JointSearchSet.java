@@ -24,9 +24,6 @@ public class JointSearchSet {
         System.out.println(Arrays.toString(parent));
     }
 
-    public void joint() {
-    }
-
     public void initialise(int[] parent) {
         for (int i = 0; i < parent.length; i++) {
             parent[i] = i;
