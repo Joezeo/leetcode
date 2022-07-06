@@ -49,7 +49,7 @@ public class SegmentTree {
         if (st == ed) {
             tree[node] = new Node(-1, -1, st, 0, arr[st]);
             tree[node].range[0] = st;
-            tree[node].range[1] = st;
+            tree[node].range[1] = ed;
             return;
         }
         int mid = st + ((ed - st) >> 1);
@@ -58,8 +58,8 @@ public class SegmentTree {
         build(tree, arr, left, st, mid);
         build(tree, arr, right, mid + 1, ed);
         tree[node] = new Node(left, right, -1, 0, tree[left].val + tree[right].val);
-        tree[node].range[0] = Math.min(tree[left].range[0], tree[right].range[0]);
-        tree[node].range[1] = Math.max(tree[left].range[1], tree[right].range[1]);
+        tree[node].range[0] = st;
+        tree[node].range[1] = ed;
     }
 
 }
