@@ -43,15 +43,12 @@ public class JointSearchSet {
         if (rootX == rootY) {
             return;
         }
-        if (rank[x] > rank[y]) {
-            parent[y] = x;
-            rank[x]++;
-        } else if (rank[y] > rank[x]) {
-            parent[x] = y;
-            rank[y]++;
+        if (rank[rootX] > rank[rootY]) {
+            parent[rootY] = rootX;
+            rank[rootX]++;
         } else {
-            parent[x] = y;
-            rank[y]++;
+            parent[rootX] = rootY;
+            rank[rootY]++;
         }
     }
 
