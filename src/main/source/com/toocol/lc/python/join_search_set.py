@@ -5,12 +5,12 @@
 # @version : v1.0
 
 
-class JoinSearchSet():
+class JoinSearchSet:
     def __init__(self):
         self.parent, self.rank = [], []
         self.maxSize = 0
 
-    def initailise(self, capacity: int):
+    def initialise(self, capacity: int):
         self.parent = [-1] * capacity
         self.rank = [1] * capacity
 
@@ -23,7 +23,7 @@ class JoinSearchSet():
         rx, ry = self.findRoot(x), self.findRoot(y)
         if rx == ry:
             return
-        if (self.rank[rx] > self.rank[ry]):
+        if self.rank[rx] > self.rank[ry]:
             self.parent[ry] = rx
             self.rank[rx] += self.rank[ry]
             self.maxSize = max(self.maxSize, self.rank[rx])
