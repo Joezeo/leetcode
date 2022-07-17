@@ -1,4 +1,4 @@
-package com.toocol.lc;
+package com.toocol.lc.java;
 
 /**
  * 前缀树/字典树

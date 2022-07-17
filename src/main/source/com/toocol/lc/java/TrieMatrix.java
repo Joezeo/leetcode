@@ -1,4 +1,4 @@
-package com.toocol.lc;
+package com.toocol.lc.java;
 
 import java.util.Arrays;
 
@@ -9,7 +9,7 @@ import java.util.Arrays;
  * 此类使用二维数组实现
  * <br>
  * 使用TrieNode:
- * @see com.toocol.lc.Trie
+ * @see Trie
  *
  * @author ZhaoZhe (joezane.cn@gmail.com)
  * @date 2022/7/7 10:34
