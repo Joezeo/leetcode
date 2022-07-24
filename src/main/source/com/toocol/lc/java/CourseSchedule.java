@@ -1,11 +1,18 @@
 package com.toocol.lc.java;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+/**
+ * 拓扑排序
+ * 
+ * @author Joe Zane (joezane.cn@gmail.com)
+ */
 public class CourseSchedule {
 
     public static void main(String[] args) {
@@ -20,8 +27,11 @@ public class CourseSchedule {
     }
 
     public int[] courseSchedule(int n, int[][] grah) {
+        // 0-入度 1-点
         int[][] penes = new int[n][2];
+        // 图数据结构的表示
         Map<Integer, Set<Integer>> grahMap = new HashMap<>();
+        // 计算每个点的入度, 构建图
         for (int[] edge : grah) {
             penes[edge[1] - 1][0]++;
             penes[edge[1] - 1][1] = edge[1];
@@ -36,7 +46,6 @@ public class CourseSchedule {
             queue.offer(pene);
 
         int[] ans = new int[n];
-        int[] tmp = new int[] { -1 };
         int idx = 0;
         while (!queue.isEmpty()) {
             int[] pe = queue.poll();
@@ -51,9 +60,6 @@ public class CourseSchedule {
                     pene[0]--;
                 }
             }
-            // triger PriorityQueue to resort
-            queue.add(tmp);
-            queue.remove(tmp);
         }
 
         return ans;

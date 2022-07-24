@@ -17,27 +17,51 @@ public class TreeNode {
         this.right = right;
     }
 
+    public TreeNode(int val) {
+        this.val = val;
+    }
+
     public TreeNode() {
     }
 
     public static TreeNode fromString(String array) {
         array = array.replaceAll("\\[", "").replaceAll("\\]", "");
-        TreeNode root = new TreeNode();
-        TreeNode cur = root;
-        int deep = 1;
         Queue<String> queue = new ArrayDeque<>();
         for (String sp : array.split(",")) {
             queue.offer(sp);
-            int cnt = 0;
-            for (int i = 0; i < deep * 2 - 1; i++) {
-
+        }
+        String val = queue.poll();
+        if ("null".equals(val)) {
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.parseInt(val));
+        Queue<TreeNode> nodes = new ArrayDeque<>();
+        nodes.offer(root);
+        int deal = 0;
+        while (!queue.isEmpty()) {
+            val = queue.poll();
+            deal++;
+            if ("null".equals(val)) {
+                if (deal == 2) {
+                    deal = 0;
+                    nodes.poll();
+                }
+                continue;
             }
-            if ("null".equals(sp)) {
-
+            TreeNode node;
+            if (deal == 1) {
+                node = nodes.peek();
+                TreeNode left = new TreeNode(Integer.parseInt(val));
+                node.left = left;
+                nodes.offer(left);
             } else {
-                cur.val = Integer.parseInt(sp);
+                node = nodes.poll();
+                TreeNode right = new TreeNode(Integer.parseInt(val));
+                node.right = right;
+                nodes.offer(right);
+                deal = 0;
             }
         }
-        return null;
+        return root;
     }
 }
