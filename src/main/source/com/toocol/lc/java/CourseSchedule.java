@@ -1,9 +1,7 @@
 package com.toocol.lc.java;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -49,7 +47,8 @@ public class CourseSchedule {
         int idx = 0;
         while (!queue.isEmpty()) {
             int[] pe = queue.poll();
-            if (pe[1] == -1) continue;
+            if (pe[1] == -1)
+                continue;
             int cur = pe[1];
             ans[idx++] = cur;
             Set<Integer> set = grahMap.get(cur);
