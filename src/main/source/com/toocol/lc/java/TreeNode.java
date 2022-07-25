@@ -37,29 +37,28 @@ public class TreeNode {
         TreeNode root = new TreeNode(Integer.parseInt(val));
         Queue<TreeNode> nodes = new ArrayDeque<>();
         nodes.offer(root);
-        int deal = 0;
+        boolean buildLeft = true;
         while (!queue.isEmpty()) {
             val = queue.poll();
-            deal++;
             if ("null".equals(val)) {
-                if (deal == 2) {
-                    deal = 0;
+                if (!buildLeft) {
+                    buildLeft = true;
                     nodes.poll();
                 }
                 continue;
             }
-            TreeNode node;
-            if (deal == 1) {
-                node = nodes.peek();
+            TreeNode node = nodes.peek();
+            if (buildLeft) {
                 TreeNode left = new TreeNode(Integer.parseInt(val));
                 node.left = left;
                 nodes.offer(left);
+                buildLeft = false;
             } else {
-                node = nodes.poll();
+                nodes.poll();
                 TreeNode right = new TreeNode(Integer.parseInt(val));
                 node.right = right;
                 nodes.offer(right);
-                deal = 0;
+                buildLeft = true;
             }
         }
         return root;

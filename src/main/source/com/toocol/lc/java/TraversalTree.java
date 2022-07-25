@@ -40,7 +40,7 @@ public class TraversalTree {
     }
 
     /**
-     * 树的前序遍历递归版
+     * 树的前序遍历迭代版
      */
     public static void preTraversal(TreeNode node) {
         if (node == null) {
@@ -71,7 +71,7 @@ public class TraversalTree {
     }
 
     /**
-     * 树的中序遍历遍历版
+     * 树的中序遍历迭代版
      */
     public static void middleTreeTraversal(TreeNode node) {
         if (node == null) {
@@ -102,7 +102,7 @@ public class TraversalTree {
     }
 
     /**
-     * 树的后序遍历遍历版
+     * 树的后序遍历迭代版
      */
     public static void postTreeTraversal(TreeNode node) {
         if (node == null) {
