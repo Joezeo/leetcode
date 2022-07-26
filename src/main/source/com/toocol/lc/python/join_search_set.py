@@ -4,7 +4,6 @@
 # @email   : joezane.cn@gmail.com
 # @version : v1.0
 
-
 class JoinSearchSet:
     def __init__(self):
         self.parent, self.rank = [], []
