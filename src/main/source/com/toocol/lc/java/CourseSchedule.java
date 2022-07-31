@@ -17,7 +17,7 @@ public class CourseSchedule {
         CourseSchedule course = new CourseSchedule();
         int[][] grah = new int[][] {
                 { 1, 8 }, { 1, 3 }, { 2, 3 }, { 2, 5 }, { 8, 9 }, { 3, 4 }, { 5, 4 }, { 5, 6 }, { 9, 7 }, { 4, 7 },
-                { 4, 6 }
+                { 4, 6 }, { 0, 1 }
         };
         int[] ans = course.courseSchedule(9, grah);
         for (int i : ans)
@@ -26,14 +26,14 @@ public class CourseSchedule {
 
     public int[] courseSchedule(int n, int[][] grah) {
         // 0-入度 1-点
-        int[][] penes = new int[n][2];
+        int[][] penes = new int[n + 1][2];
         // 图数据结构的表示
         Map<Integer, Set<Integer>> grahMap = new HashMap<>();
         // 计算每个点的入度, 构建图
         for (int[] edge : grah) {
-            penes[edge[1] - 1][0]++;
-            penes[edge[1] - 1][1] = edge[1];
-            penes[edge[0] - 1][1] = edge[0];
+            penes[edge[1]][0]++;
+            penes[edge[1]][1] = edge[1];
+            penes[edge[0]][1] = edge[0];
             Set<Integer> set = grahMap.getOrDefault(edge[0], new HashSet<>());
             set.add(edge[1]);
             grahMap.put(edge[0], set);
@@ -43,7 +43,7 @@ public class CourseSchedule {
         for (int[] pene : penes)
             queue.offer(pene);
 
-        int[] ans = new int[n];
+        int[] ans = new int[n + 1];
         int idx = 0;
         while (!queue.isEmpty()) {
             int[] pe = queue.poll();
